@@ -1,22 +1,27 @@
 public class Diretor extends Pessoa {
 
-    private int quantidadeDeFilmesDirigitos;
+    private int quantidadeDeFilmesDirigidos;
 
-    public Diretor() {
 
+    public Diretor (String nome, String sobrenome, int idade)
+    {
+        this(nome, sobrenome, idade, 0);
     }
 
-    public Diretor(String nome, String sobrenome, int idade, int quantidadeDeFilmesDirigitos) {
+    public Diretor(String nome, String sobrenome, int idade, int quantidadeDeFilmesDirigidos)
+    {
         super(nome, sobrenome, idade);
-        this.quantidadeDeFilmesDirigitos = quantidadeDeFilmesDirigitos;
+        this.quantidadeDeFilmesDirigidos = quantidadeDeFilmesDirigidos;
     }
 
-    public int getQuantidadeDeFilmesDirigitos() {
-        return quantidadeDeFilmesDirigitos;
+    public int getQuantidadeDeFilmesDirigitos()
+    {
+        return quantidadeDeFilmesDirigidos;
     }
 
-    public void setQuantidadeDeFilmesDirigitos(int quantidadeDeFilmesDirigitos) {
-        this.quantidadeDeFilmesDirigitos = quantidadeDeFilmesDirigitos;
+    public void setQuantidadeDeFilmesDirigitos(int quantidadeDeFilmesDirigidos)
+    {
+        this.quantidadeDeFilmesDirigidos = quantidadeDeFilmesDirigidos;
     }
 
 
@@ -26,7 +31,7 @@ public class Diretor extends Pessoa {
                 " Nome: " + nome +
                 ", Sobrenome: " + sobrenome +
                 ", Idade: " + idade +
-                "Quantidade de filmes dirigidos: " + quantidadeDeFilmesDirigitos
+                "Quantidade de filmes dirigidos: " + quantidadeDeFilmesDirigidos
                 ;
     }
 }
