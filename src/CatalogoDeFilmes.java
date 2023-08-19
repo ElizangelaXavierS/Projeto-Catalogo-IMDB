@@ -1,6 +1,7 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
-public class Cadastro {
+public class CatalogoDeFilmes {
 
     private ArrayList<Ator> atores = new ArrayList<>();
 
@@ -34,12 +35,25 @@ public class Cadastro {
 
     public void exibirFilmes() {
         for (Filme filme : filmes) {
-            System.out.println(filme.toString());
+            System.out.println(filmes);
         }
     }
 
+    public void associarFilmeComAtorEDiretor(Filme filme, Diretor diretor, ArrayList<Ator> atores){
+        filme.setDiretor(diretor);
+        for(Ator ator : atores){
+            filme.adicionarAtor(ator);
+        }
+    }
 
-
+    @Override
+    public String toString() {
+        return "CatalogoDeFilmes{" +
+                "atores=" + atores +
+                ", diretores=" + diretores +
+                ", filmes=" + filmes +
+                '}';
+    }
 }
 
 

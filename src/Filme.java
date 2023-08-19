@@ -8,17 +8,19 @@ public class Filme {
     private String descricao;
 
     private Diretor diretor;
-    ArrayList<Ator> listaAtores = new ArrayList<>();
+    ArrayList<Ator> atores = new ArrayList<>();
 
     public Filme() {
 
     }
 
-    public Filme(String nome, String dataDeLancamento, double orcamento, String descricao) {
+    public Filme(String nome, String dataDeLancamento, double orcamento, String descricao, Diretor diretor) {
         this.nome = nome;
         this.dataDeLancamento = dataDeLancamento;
         this.orcamento = orcamento;
         this.descricao = descricao;
+        this.diretor = diretor;
+        this.atores = atores;
     }
 
     public String getNome() {
@@ -62,12 +64,17 @@ public class Filme {
     }
 
     public ArrayList<Ator> getListaAtores() {
-        return listaAtores;
+        return atores;
     }
 
     public void setListaAtores(ArrayList<Ator> listaAtores) {
-        this.listaAtores = listaAtores;
+        this.atores = listaAtores;
     }
+
+    public void adicionarAtor(Ator ator){
+        atores.add(ator);
+    }
+
 
     @Override
     public String toString() {
