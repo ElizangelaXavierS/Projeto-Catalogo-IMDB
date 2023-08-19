@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class CatalogoDeFilmes {
+public class Catalogo {
 
-    private ArrayList<Ator> atores = new ArrayList<>();
+    private static ArrayList<Ator> catalogoAtores = new ArrayList<>();
 
-    private ArrayList<Diretor> diretores = new ArrayList<>();
+    private static ArrayList<Diretor> catalogodiretores = new ArrayList<>();
 
-    private ArrayList<Filme> filmes = new ArrayList<>();
+    private static ArrayList<Filme> filmes = new ArrayList<>();
 
     public void cadastrarAtor(Ator ator) {
         atores.add(ator);
