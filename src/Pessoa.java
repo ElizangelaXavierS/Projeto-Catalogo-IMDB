@@ -1,8 +1,8 @@
-public abstract class Pessoa {
+public class Pessoa {
 
-    private String nome;
-    private String sobrenome;
-    int idade;
+    protected String nome;
+    protected String sobrenome;
+    protected int idade;
 
     public Pessoa(){
 
@@ -36,5 +36,14 @@ public abstract class Pessoa {
 
     public void setIdade(int idade) {
         this.idade = idade;
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "nome='" + nome + '\'' +
+                ", sobrenome='" + sobrenome + '\'' +
+                ", idade=" + idade +
+                '}';
     }
 }

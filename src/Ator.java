@@ -1,31 +1,33 @@
 public class Ator extends Pessoa {
 
-    private int filmesTrabalhados;
+    private int quantidadeDeFilmesTrabalhados;
 
     public Ator() {
     }
 
-    public Ator(String nome, String sobrenome, int idade) {
+    public Ator(String nome, String sobrenome, int idade, int quantidadeDeFilmesTrabalhados) {
         super(nome, sobrenome, idade);
+        this.quantidadeDeFilmesTrabalhados = quantidadeDeFilmesTrabalhados;
     }
 
-    public int getFilmesTrabalhados() {
-        return filmesTrabalhados;
+    public int getQuantidadeDeFilmesTrabalhados() {
+        return quantidadeDeFilmesTrabalhados;
     }
 
-    public void setFilmesTrabalhados(int filmesTrabalhados) {
-        this.filmesTrabalhados = filmesTrabalhados;
+    public void setQuantidadeDeFilmesTrabalhados(int quantidadeDeFilmesTrabalhados) {
+        this.quantidadeDeFilmesTrabalhados = quantidadeDeFilmesTrabalhados;
     }
-
-
 
     @Override
     public String toString() {
-        return super.toString() + "Ator{" +
-                "filmesTrabalhados=" + filmesTrabalhados +
-                ", idade=" + idade +
-                '}';
+        return "Ator - " +
+                " Nome: " + nome +
+                ", Sobrenome:" + sobrenome +
+                ", Idade: " + idade +
+                ", Quantidade De Filmes Trabalhados:" + quantidadeDeFilmesTrabalhados
+                ;
     }
 }
+
 
 

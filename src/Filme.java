@@ -8,13 +8,13 @@ public class Filme {
     private String descricao;
 
     private Diretor diretor;
-    ArrayList<Ator> atores = new ArrayList<>();
+    private ArrayList<Ator> atores = new ArrayList<>();
 
     public Filme() {
 
     }
 
-    public Filme(String nome, String dataDeLancamento, double orcamento, String descricao, Diretor diretor) {
+    public Filme(String nome, String dataDeLancamento, double orcamento, String descricao, Diretor diretor, ArrayList<Ator> atores) {
         this.nome = nome;
         this.dataDeLancamento = dataDeLancamento;
         this.orcamento = orcamento;
@@ -22,6 +22,14 @@ public class Filme {
         this.diretor = diretor;
         this.atores = atores;
     }
+
+    public Filme(String nome, String dataDeLancamento, double orcamento, String descricao) {
+        this.nome = nome;
+        this.dataDeLancamento = dataDeLancamento;
+        this.orcamento = orcamento;
+        this.descricao = descricao;
+    }
+
 
     public String getNome() {
         return nome;
@@ -78,11 +86,11 @@ public class Filme {
 
     @Override
     public String toString() {
-        return "Filme{" +
-                "nome='" + nome + '\'' +
-                ", dataDeLancamento='" + dataDeLancamento + '\'' +
-                ", orcamento=" + orcamento +
-                ", descricao='" + descricao + '\'' +
-                '}';
+        return "Filme [" +
+                "Nome: " + nome +
+                ", Data De Lançamento:" + dataDeLancamento +
+                ", Orçamento: " + orcamento +
+                ", Descrição: " + descricao
+                + "]";
     }
 }

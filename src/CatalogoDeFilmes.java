@@ -11,6 +11,7 @@ public class CatalogoDeFilmes {
 
     public void cadastrarAtor(Ator ator) {
         atores.add(ator);
+        System.out.println("Ator cadastrado com sucesso!");
     }
 
    public void exibirAtore() {
@@ -19,8 +20,9 @@ public class CatalogoDeFilmes {
         }
     }
 
-    public void cadastrarDiretore(Diretor diretor) {
+    public void cadastrarDiretor(Diretor diretor) {
         diretores.add(diretor);
+        System.out.println("Diretor cadastrado com sucesso! ");
     }
 
     public void exibirDiretore() {
@@ -31,11 +33,12 @@ public class CatalogoDeFilmes {
 
     public void cadastrarFilme(Filme filme) {
         filmes.add(filme);
+        System.out.println("Filme cadastrado com sucesso! ");
     }
 
     public void exibirFilmes() {
         for (Filme filme : filmes) {
-            System.out.println(filmes);
+            System.out.println(filme);
         }
     }
 
@@ -46,13 +49,14 @@ public class CatalogoDeFilmes {
         }
     }
 
-    @Override
-    public String toString() {
-        return "CatalogoDeFilmes{" +
-                "atores=" + atores +
-                ", diretores=" + diretores +
-                ", filmes=" + filmes +
-                '}';
+    public Filme pesquisarFilmePorNome(String nome){
+        for(Filme filme : filmes){
+            if (filme.getNome().equalsIgnoreCase(nome)){
+                return filme;
+            }
+        }
+    return null;
+
     }
 }
 
