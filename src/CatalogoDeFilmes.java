@@ -1,41 +1,44 @@
 import java.util.ArrayList;
 
 public class Cadastro {
-    public static ArrayList<Ator> atores = new ArrayList<>();
 
-    public static ArrayList<Diretor> diretores = new ArrayList<>();
+    private ArrayList<Ator> atores = new ArrayList<>();
 
-    public static ArrayList<Filme> filmes = new ArrayList<>();
+    private ArrayList<Diretor> diretores = new ArrayList<>();
 
-    public static void adicionarAtores(Ator ator) {
+    private ArrayList<Filme> filmes = new ArrayList<>();
+
+    public void cadastrarAtor(Ator ator) {
         atores.add(ator);
     }
 
-    public static void exibirAtores() {
+   public void exibirAtore() {
         for (Ator ator : atores) {
             System.out.println(ator.toString());
         }
     }
 
-    public static void adicionarDiretores(Diretor diretor) {
+    public void cadastrarDiretore(Diretor diretor) {
         diretores.add(diretor);
     }
 
-    public static void exibirDiretores() {
+    public void exibirDiretore() {
         for (Diretor diretor : diretores) {
             System.out.println(diretor.toString());
         }
     }
 
-    public static void adicionarFilmes(Filme filme) {
+    public void cadastrarFilme(Filme filme) {
         filmes.add(filme);
     }
 
-    public static void exibirFilmes() {
+    public void exibirFilmes() {
         for (Filme filme : filmes) {
             System.out.println(filme.toString());
         }
     }
+
+
 
 }
 
