@@ -14,12 +14,12 @@ public class Diretor extends Pessoa {
         this.quantidadeDeFilmesDirigidos = quantidadeDeFilmesDirigidos;
     }
 
-    public int getQuantidadeDeFilmesDirigitos()
+    public int getQuantidadeDeFilmesDirigidos()
     {
         return quantidadeDeFilmesDirigidos;
     }
 
-    public void setQuantidadeDeFilmesDirigitos(int quantidadeDeFilmesDirigidos)
+    public void setQuantidadeDeFilmesDirigidos(int quantidadeDeFilmesDirigidos)
     {
         this.quantidadeDeFilmesDirigidos = quantidadeDeFilmesDirigidos;
     }
@@ -27,11 +27,7 @@ public class Diretor extends Pessoa {
 
     @Override
     public String toString() {
-        return "Diretor - " +
-                " Nome: " + nome +
-                ", Sobrenome: " + sobrenome +
-                ", Idade: " + idade +
-                "Quantidade de filmes dirigidos: " + quantidadeDeFilmesDirigidos
-                ;
+        return super.toString() + "Quantidade de filmes dirigidos: " + quantidadeDeFilmesDirigidos;
+
     }
 }

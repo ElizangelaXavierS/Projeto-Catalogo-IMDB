@@ -8,7 +8,7 @@ public class Main {
 
         int opcao = 0;
 
-        while (opcao != 7) {
+        while (opcao != 8) {
 
             System.out.println("----------------------CATÁLOGO IMDB-----------------------");
             System.out.println("-                                                        -");
@@ -18,9 +18,10 @@ public class Main {
             System.out.println("-       2 - Listar filmes                                -");
             System.out.println("-       3 - Cadastrar ator                               -");
             System.out.println("-       4 - Cadastrar diretor                            -");
-            System.out.println("-       5 - Associar filme com seus atores e diretores   -");
-            System.out.println("-       6 - Pesquisar filme cadastrado                   -");
-            System.out.println("-       7 - SAIR                                         -");
+            System.out.println("-       5 - Associar ator a um filme                     -");
+            System.out.println("-       6 - Associar diretor a um filme                  -");
+            System.out.println("-       7 - Pesquisar filme cadastrado                   -");
+            System.out.println("-       8- Sair                                          -");
             System.out.println("-                                                        -");
             System.out.println("----------------------------------------------------------");
 
@@ -51,6 +52,7 @@ public class Main {
                     Catalogo.exibirFilmes();
                 }
                 case 3 -> {
+
                     sc.nextLine();
                     System.out.println("Digite o nome do ator: ");
                     String nome = sc.nextLine();
@@ -66,32 +68,11 @@ public class Main {
 
                     Catalogo.cadastrarAtor(nome, sobrenome, idade);
 
-                    System.out.println("Deseja associar o ator a um filme (S/N)? ATENÇÃO: O filme precisa estar cadastrado no sistema!");
 
-                    sc.nextLine();
-                    String associar = sc.nextLine();
-
-                     if (associar.equalsIgnoreCase("S")) {
-
-                         System.out.println("Qual o nome do filme que deseja associar?");
-
-                         String nomeDoFilme = sc.nextLine();
-
-                         Filme filme = Catalogo.buscarFilme(nome);
-
-                           if (filme != null)
-                           {
-                               filme.adicionarAtor(Catalogo.buscarAtor(nome, sobrenome));
-
-                           } else {
-
-                               System.out.println("ATENÇÃO: filme não cadastrado! Cadastre o filme no sistema.");
-                           }
-
-                     }
                 }
 
                 case 4 -> {
+
                     sc.nextLine();
                     System.out.println("Digite o nome do diretor: ");
                     String nome = sc.nextLine();
@@ -107,35 +88,86 @@ public class Main {
 
                    Catalogo.cadastrarDiretor(nome, sobrenome, idade);
 
-                   System.out.println("Deseja associar o diretor a um filme (S/N)? ATENÇÃO: O filme precisa estar cadastrado no sistema!");
+                }
+                case 5 ->
+                {
+                    System.out.println("Certifique-se que o ator e o filme estejam cadastrados no sistema. Deseja continuar (S/N)?");
+
+                     sc.nextLine();
+                     String escolha = sc.nextLine();
+
+                        if (escolha.equalsIgnoreCase("S")) {
+
+                             System.out.println("Digite o nome do ator desejado");
+                             String nome = sc.nextLine();
+
+                             System.out.println("Digite o sobrenome do ator");
+                             String sobrenome = sc.nextLine();
+
+                            System.out.println("Qual o nome do filme em que " + nome + " " + sobrenome + " atuou?");
+
+                            String nomeDoFilme = sc.nextLine();
+
+                            Ator ator = Catalogo.buscarAtor(nome,sobrenome);
+                            Filme filme = Catalogo.buscarFilme(nomeDoFilme);
+
+                              if (ator == null || filme == null) {
+
+                                  if (ator == null)
+                                      System.out.println("ATENÇÃO: Ator não cadastrado no sistema. Cadastre-o inicialmente.");
+                                  if (filme == null)
+                                      System.out.println("ATENÇÃO: Filme não cadastrado no sistema. Cadastre-o inicialmente.");
+
+                                  break;
+                              } else {
+                                  filme.adicionarAtor(ator);
+
+                                  System.out.println();
+                                  System.out.println("O ator " + nome + " " + sobrenome + " foi vinculado ao filme com sucesso!");
+
+                              }
+                        }
+                }
+                case 6 -> {
+
+                    System.out.println("Certifique-se que o diretor e o filme estejam cadastrados no sistema. Deseja continuar (S/N)?");
 
                     sc.nextLine();
-                    String associar = sc.nextLine();
+                    String escolha = sc.nextLine();
 
-                    if (associar.equalsIgnoreCase("S")) {
+                    if (escolha.equalsIgnoreCase("S")) {
 
-                        System.out.println("Qual o nome do filme que deseja associar?");
+                        System.out.println("Digite o nome do diretor desejado");
+                        String nome = sc.nextLine();
+
+                        System.out.println("Digite o sobrenome do diretor");
+                        String sobrenome = sc.nextLine();
+
+                        System.out.println("Qual o nome do filme dirigido por " + nome + " " + sobrenome + "?");
 
                         String nomeDoFilme = sc.nextLine();
 
-                        Filme filme = Catalogo.buscarFilme(nome);
+                        Diretor diretor = Catalogo.buscarDiretor(nome, sobrenome);
+                        Filme filme = Catalogo.buscarFilme(nomeDoFilme);
 
-                        if (filme != null)
-                        {
-                            filme.setDiretor(Catalogo.buscarDiretor(nome, sobrenome));
+                        if ( diretor == null || filme == null) {
 
+                            if (diretor == null)
+                                System.out.println("ATENÇÃO: Ator não cadastrado no sistema. Cadastre-o inicialmente.");
+                            if (filme == null)
+                                System.out.println("ATENÇÃO: Filme não cadastrado no sistema. Cadastre-o inicialmente.");
                         } else {
 
-                            System.out.println("ATENÇÃO: filme não cadastrado! Cadastre o filme no sistema.");
+                            filme.setDiretor(diretor);
+                            System.out.println();
+                            System.out.println("O diretor " + nome + " " + sobrenome + " foi vinculado ao filme com sucesso!");
+
                         }
-
                     }
+                }
 
-                }
-                case 5 -> {
-                    System.out.println("Associar filme e ator");
-                }
-                case 6 -> {
+                case 7 -> {
+
                     sc.nextLine();
                     System.out.println("Digite o nome do filme que deseja encontrar; ");
                     String nome = sc.nextLine();
@@ -149,12 +181,12 @@ public class Main {
                     }
 
                 }
-                case 7 -> {
+                case 8 -> {
                     System.out.println("Volte sempre!");
-
                 }
                 default -> {
                     System.out.println("Opção inválida!");
+
                 }
             }
         }

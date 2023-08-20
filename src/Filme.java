@@ -7,7 +7,7 @@ public class Filme {
     private String descricao;
 
     private Diretor diretor;
-    private ArrayList<Ator> atores;
+    private ArrayList<Ator> atores = new ArrayList<>();
 
     public Filme (String nome, String dataDeLancamento, double orcamento, String descricao) {
 
@@ -48,6 +48,7 @@ public class Filme {
     }
 
     public String getDescricao() {
+
         return descricao;
     }
 
@@ -67,6 +68,7 @@ public class Filme {
     }
 
     public ArrayList<Ator> getListaAtores() {
+
         return atores;
     }
 

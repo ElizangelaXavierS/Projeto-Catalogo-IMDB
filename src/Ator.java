@@ -29,12 +29,9 @@ public class Ator extends Pessoa {
 
     @Override
     public String toString() {
-        return "Ator - " +
-                " Nome: " + nome +
-                ", Sobrenome:" + sobrenome +
-                ", Idade: " + idade +
-                ", Quantidade De Filmes Trabalhados:" + quantidadeDeFilmesTrabalhados
-                ;
+
+        return super.toString() +  "Quantidade de filmes trabalhados:" + quantidadeDeFilmesTrabalhados;
+
     }
 }
 
