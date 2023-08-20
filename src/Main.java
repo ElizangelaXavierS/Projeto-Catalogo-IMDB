@@ -190,7 +190,5 @@ public class Main {
                 }
             }
         }
-
-        Catalogo.exibirFilmes();
     }
 }
