@@ -75,6 +75,9 @@ public class Catalogo {
 
                 System.out.println();
                 System.out.println("O filme " + nome + " foi cadastrado com sucesso!");
+
+                System.out.println(novoFilme);
+
                 System.out.println();
 
             } else {
@@ -100,12 +103,7 @@ public class Catalogo {
                 System.out.println(filme);
             }
         }
-        public void associarFilmeComAtorEDiretor(Filme filme, Diretor diretor)
-        {
-            filme.setDiretor(diretor);
-            for (Ator ator : catalogoAtores) {
-                filme.adicionarAtor(ator);
-            }
-        }
+
+
     }
 

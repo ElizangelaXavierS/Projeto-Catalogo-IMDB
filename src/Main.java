@@ -21,7 +21,7 @@ public class Main {
             System.out.println("-       5 - Associar ator a um filme                     -");
             System.out.println("-       6 - Associar diretor a um filme                  -");
             System.out.println("-       7 - Pesquisar filme cadastrado                   -");
-            System.out.println("-       8- Sair                                          -");
+            System.out.println("-       8 - Sair                                          -");
             System.out.println("-                                                        -");
             System.out.println("----------------------------------------------------------");
 
@@ -46,6 +46,8 @@ public class Main {
                     String descricao = sc.nextLine();
 
                     Catalogo.cadastrarFilme(nome, dataDeLancamento, orcamento, descricao);
+
+
 
                 }
                 case 2 -> {
@@ -86,7 +88,7 @@ public class Main {
                     System.out.println("Digite a quantidade de filme dirigidos por " + nome);
                     int quantidade = sc.nextInt();
 
-                   Catalogo.cadastrarDiretor(nome, sobrenome, idade);
+                    Catalogo.cadastrarDiretor(nome, sobrenome, idade);
 
                 }
                 case 5 ->
@@ -120,10 +122,13 @@ public class Main {
 
                                   break;
                               } else {
+
                                   filme.adicionarAtor(ator);
 
                                   System.out.println();
                                   System.out.println("O ator " + nome + " " + sobrenome + " foi vinculado ao filme com sucesso!");
+
+                                  System.out.println(filme);
 
                               }
                         }
@@ -161,13 +166,13 @@ public class Main {
                             filme.setDiretor(diretor);
                             System.out.println();
                             System.out.println("O diretor " + nome + " " + sobrenome + " foi vinculado ao filme com sucesso!");
+                            System.out.println(filme);
 
                         }
                     }
                 }
 
                 case 7 -> {
-
                     sc.nextLine();
                     System.out.println("Digite o nome do filme que deseja encontrar; ");
                     String nome = sc.nextLine();
