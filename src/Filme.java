@@ -90,7 +90,17 @@ public class Filme {
                 "Nome: " + nome +
                 ", Data De Lançamento:" + dataDeLancamento +
                 ", Orçamento: " + orcamento +
-                ", Descrição: " + descricao
+                ", Descrição: " + descricao +
+                (diretor != null ? ", Diretor: " + diretor.getNome() : "") +
+                (atores.size() > 0 ? ", Atores: [" + nomesDeAtores() +"]" : "")
                 + "]";
+    }
+
+    private String nomesDeAtores(){
+        String nomes = "";
+        for (Ator ator: atores){
+            nomes = nomes.concat(ator.getNome()+ " , ");
+        }
+        return nomes;
     }
 }

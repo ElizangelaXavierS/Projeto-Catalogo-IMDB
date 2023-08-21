@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -8,14 +9,14 @@ public class Main {
 
         int opcao = 0;
         while (opcao != 7) {
-            System.out.println("----------------------CATÁLOGO IMDB----------------------");
+            System.out.println("----------------------CATÁLOGO IMDB-----------------------");
             System.out.println("-                                                        -");
-            System.out.println("-            Seleciona uma das opções abaixo:            -");
+            System.out.println("-            Selecione uma das opções abaixo:            -");
             System.out.println("-                                                        -");
-            System.out.println("-       1 - Cadastrar Filme                              -");
-            System.out.println("-       2 - Lista Filmes                                 -");
-            System.out.println("-       3 - Cadastrar Atores                             -");
-            System.out.println("-       4 - Cadastrar Diretores                          -");
+            System.out.println("-       1 - Cadastrar filme                              -");
+            System.out.println("-       2 - Lista filmes                                 -");
+            System.out.println("-       3 - Cadastrar atores                             -");
+            System.out.println("-       4 - Cadastrar diretores                          -");
             System.out.println("-       5 - Associar filme com seus atores e diretores   -");
             System.out.println("-       6 - Pesquisar filme cadastrado                   -");
             System.out.println("-       7 - SAIR                                         -");
@@ -41,7 +42,6 @@ public class Main {
 
                     Filme filme = new Filme(nome, dataDeLancamento, orcamento, descricao);
                     catalogoDeFilmes.cadastrarFilme(filme);
-                    ;
                     break;
                 }
 
@@ -63,7 +63,7 @@ public class Main {
                     System.out.println("Digite a quantidade de filme do ator: ");
                     int quantidade = sc.nextInt();
 
-                    Ator ator = new Ator(nome,sobrenome,idade,quantidade);
+                    Ator ator = new Ator(nome, sobrenome, idade, quantidade);
                     System.out.println(ator);
                     catalogoDeFilmes.cadastrarAtor(ator);
 
@@ -83,13 +83,77 @@ public class Main {
                     System.out.println("Digite a quantidade de filme dirigidos do diretor: ");
                     int quantidade = sc.nextInt();
 
-                    Diretor diretor = new Diretor(nome,sobrenome,idade,quantidade);
+                    Diretor diretor = new Diretor(nome, sobrenome, idade, quantidade);
                     System.out.println(diretor);
                     catalogoDeFilmes.cadastrarDiretor(diretor);
                     break;
                 }
                 case 5: {
-                    System.out.println("Associar filme e ator");
+                    sc.nextLine();
+                    boolean continua = true;
+                    Filme filme;
+                    Diretor diretor;
+                    ArrayList<Ator> atores = new ArrayList<>();
+
+                    do {
+
+                        System.out.println("Qual filme voce deseja associar?");
+                        String nomeDoFilme = sc.nextLine();
+
+                        filme = catalogoDeFilmes.pesquisarFilmePorNome(nomeDoFilme);
+
+                        if (filme != null) {
+                            continua = false;
+                            System.out.println(filme);
+                        } else {
+                            System.out.println("Filme não encontrado! ");
+                        }
+                    } while (continua);
+
+                    continua = true;
+
+
+                    do {
+                        System.out.println("Qual Diretor você deseja associar?");
+                        String nomeDoDiretor = sc.nextLine();
+
+                        diretor = catalogoDeFilmes.pesquisarDiretorPorNome(nomeDoDiretor);
+
+                        if (diretor != null) {
+                            continua = false;
+                            System.out.println(diretor);
+                        } else {
+                            System.out.println("Diretor não encontrado! ");
+                        }
+                    } while (continua);
+
+                    continua = true;
+
+
+                    do {
+                        System.out.println("Qual ator você deseja associar?");
+                        String nomeDoAtor = sc.nextLine();
+
+                        Ator ator = catalogoDeFilmes.pesquisarAtorPorNome(nomeDoAtor);
+
+                        if (ator != null) {
+                            System.out.println(ator);
+                            atores.add(ator);
+
+                            System.out.println("Deseja cadastrar mais atores? [S/N]");
+                            String resposta = sc.nextLine();
+
+                            if ("N".equalsIgnoreCase(resposta)) {
+                                continua = false;
+                            }
+                        } else {
+                            System.out.println("Diretor não encontrado! ");
+                        }
+
+                    } while (continua);
+
+                    catalogoDeFilmes.associarFilmeComAtorEDiretor(filme, diretor, atores);
+
                     break;
                 }
                 case 6: {
@@ -99,9 +163,9 @@ public class Main {
 
                     Filme filme = catalogoDeFilmes.pesquisarFilmePorNome(nome);
 
-                    if(filme != null){
+                    if (filme != null) {
                         System.out.println(filme);
-                    }else{
+                    } else {
                         System.out.println("Filme não encontrado!");
                     }
 
@@ -113,10 +177,9 @@ public class Main {
 
                 }
                 default: {
-                    System.out.println("Opção invalida!");
+                    System.out.println("Opção inválida!");
                 }
             }
         }
-        catalogoDeFilmes.exibirFilmes();
     }
 }

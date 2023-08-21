@@ -43,10 +43,8 @@ public class CatalogoDeFilmes {
     }
 
     public void associarFilmeComAtorEDiretor(Filme filme, Diretor diretor, ArrayList<Ator> atores){
+        filme.getListaAtores().addAll(atores);
         filme.setDiretor(diretor);
-        for(Ator ator : atores){
-            filme.adicionarAtor(ator);
-        }
     }
 
     public Filme pesquisarFilmePorNome(String nome){
@@ -58,6 +56,25 @@ public class CatalogoDeFilmes {
     return null;
 
     }
+    public Diretor pesquisarDiretorPorNome(String nome){
+        for(Diretor diretor : diretores){
+            if (diretor.getNome().equalsIgnoreCase(nome)){
+                return diretor;
+            }
+        }
+    return null;
+
+    }
+    public Ator pesquisarAtorPorNome(String nome){
+        for(Ator ator : atores){
+            if (ator.getNome().equalsIgnoreCase(nome)){
+                return ator;
+            }
+        }
+    return null;
+
+    }
+
 }
 
 
