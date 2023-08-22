@@ -65,9 +65,6 @@ public class Main {
                     System.out.println("Digite a idade do ator: ");
                     int idade = sc.nextInt();
 
-                    System.out.println("Digite a quantidade de filmes atuados por " + nome);
-                    int quantidade = sc.nextInt();
-
                     Catalogo.cadastrarAtor(nome, sobrenome, idade);
 
 
@@ -84,9 +81,6 @@ public class Main {
 
                     System.out.println("Digite a idade do diretor: ");
                     int idade = sc.nextInt();
-
-                    System.out.println("Digite a quantidade de filme dirigidos por " + nome);
-                    int quantidade = sc.nextInt();
 
                     Catalogo.cadastrarDiretor(nome, sobrenome, idade);
 

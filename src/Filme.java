@@ -76,6 +76,8 @@ public class Filme {
 
     @Override
     public String toString() {
+
+
         return "\n" + "Nome do filme: " + nome + "\n" + "Data de lancamento do filme: " + dataDeLancamento + "\n" + "Orçamento: " + orcamento + "\n" + "Descrição: " + descricao + "\n" + "Diretor: " + diretor + "\n" + "Atores do filme: " + atores.toString();
     }
 }

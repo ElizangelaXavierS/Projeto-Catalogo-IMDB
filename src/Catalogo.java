@@ -17,6 +17,7 @@ public class Catalogo {
 
                 System.out.println();
                 System.out.println("Novo ator cadastrado com sucesso!");
+                System.out.println(novoAtor);
                 System.out.println();
 
             } else {
@@ -47,6 +48,7 @@ public class Catalogo {
 
                 System.out.println();
                 System.out.println("Diretor cadastrado com sucesso! ");
+                System.out.println(novoDiretor);
                 System.out.println();
 
             } else {
