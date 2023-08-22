@@ -16,7 +16,7 @@ public abstract class Pessoa {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome (String nome) {
 
         this.nome = nome;
     }
@@ -32,20 +32,18 @@ public abstract class Pessoa {
     }
 
     public int getIdade() {
+
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade (int idade) {
 
         this.idade = idade;
     }
 
     @Override
     public String toString() {
-        return "Pessoa{" +
-                "nome='" + nome + '\'' +
-                ", sobrenome='" + sobrenome + '\'' +
-                ", idade=" + idade +
-                '}';
+
+        return "Nome:" + nome +  " Sobrenome:"+ sobrenome + " " + " Idade:" + idade;
     }
 }

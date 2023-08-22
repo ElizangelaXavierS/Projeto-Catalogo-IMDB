@@ -67,16 +67,6 @@ public class Filme {
         this.diretor = diretor;
     }
 
-    public ArrayList<Ator> getListaAtores() {
-
-        return atores;
-    }
-
-    public void setListaAtores (ArrayList<Ator> listaAtores) {
-
-     this.atores = listaAtores;
-
-    }
 
     public void adicionarAtor (Ator ator){
 
@@ -86,11 +76,8 @@ public class Filme {
 
     @Override
     public String toString() {
-        return "Filme [" +
-                "Nome: " + nome +
-                ", Data De Lançamento:" + dataDeLancamento +
-                ", Orçamento: " + orcamento +
-                ", Descrição: " + descricao
-                + "]";
+
+
+        return "\n" + "Nome do filme: " + nome + "\n" + "Data de lancamento do filme: " + dataDeLancamento + "\n" + "Orçamento: " + orcamento + "\n" + "Descrição: " + descricao + "\n" + "Diretor: " + diretor + "\n" + "Atores do filme: " + atores.toString();
     }
 }
