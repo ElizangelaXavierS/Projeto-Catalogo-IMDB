@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Filme {
+public class Filme implements ExibirDados {
 
     private String nome;
     private String dataDeLancamento;
@@ -102,5 +102,17 @@ public class Filme {
             nomes = nomes.concat(ator.getNome()+ " , ");
         }
         return nomes;
+    }
+
+    @Override
+    public void exibir() {
+        System.out.println("Filme [" +
+                "Nome: " + nome +
+                ", Data De Lançamento:" + dataDeLancamento +
+                ", Orçamento: " + orcamento +
+                ", Descrição: " + descricao +
+                (diretor != null ? ", Diretor: " + diretor.getNome() : "") +
+                (atores.size() > 0 ? ", Atores: [" + nomesDeAtores() +"]" : "")
+                + "]");
     }
 }

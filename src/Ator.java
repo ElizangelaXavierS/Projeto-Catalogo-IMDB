@@ -1,4 +1,4 @@
-public class Ator extends Pessoa {
+public class Ator extends Pessoa implements ExibirDados{
 
     private int quantidadeDeFilmesTrabalhados;
 
@@ -26,6 +26,16 @@ public class Ator extends Pessoa {
                 ", Idade: " + idade +
                 ", Quantidade De Filmes Trabalhados:" + quantidadeDeFilmesTrabalhados
                 ;
+    }
+
+    @Override
+    public void exibir() {
+        System.out.println( "Ator - " +
+                " Nome: " + nome +
+                ", Sobrenome:" + sobrenome +
+                ", Idade: " + idade +
+                ", Quantidade De Filmes Trabalhados:" + quantidadeDeFilmesTrabalhados
+        );
     }
 }
 

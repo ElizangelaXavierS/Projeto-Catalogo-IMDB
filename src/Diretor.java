@@ -1,4 +1,4 @@
-public class Diretor extends Pessoa {
+public class Diretor extends Pessoa implements ExibirDados{
 
     private int quantidadeDeFilmesDirigitos;
 
@@ -28,5 +28,15 @@ public class Diretor extends Pessoa {
                 ", Idade: " + idade +
                 "Quantidade de filmes dirigidos: " + quantidadeDeFilmesDirigitos
                 ;
+    }
+
+    @Override
+    public void exibir() {
+        System.out.println("Diretor - " +
+                " Nome: " + nome +
+                ", Sobrenome: " + sobrenome +
+                ", Idade: " + idade +
+                "Quantidade de filmes dirigidos: " + quantidadeDeFilmesDirigitos
+        );
     }
 }
