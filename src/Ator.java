@@ -1,6 +1,7 @@
 public class Ator extends Pessoa {
 
 
+
     private int quantidadeDeFilmesTrabalhados;
 
     public Ator (String nome, String sobrenome, int idade)

@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -25,7 +26,8 @@ public class Main {
             System.out.println("-                                                        -");
             System.out.println("----------------------------------------------------------");
 
-            opcao = sc.nextInt();
+           opcao = sc.nextInt();
+
 
             switch (opcao) {
 

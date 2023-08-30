@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 
-public class Catalogo {
+public class Catalogo implements Cadastrar, Pesquisar {
         private static ArrayList<Ator> catalogoAtores = new ArrayList<>();
 
         private static ArrayList<Diretor> catalogoDiretores = new ArrayList<>();
 
         private static ArrayList<Filme> catalogoFilmes = new ArrayList<>();
+
 
 
         public static void cadastrarAtor (String nome, String sobrenome, int idade)
@@ -66,23 +67,6 @@ public class Catalogo {
             return null;
 
         }
-        public static void cadastrarFilme (String nome, String dataDeLancamento, double orcamento, String descricao) {
-
-            if (buscarFilme(nome) == null)
-            {
-                Filme novoFilme = new Filme(nome, dataDeLancamento, orcamento, descricao);
-                catalogoFilmes.add(novoFilme);
-
-                System.out.println();
-                System.out.println("O filme " + nome + " foi cadastrado com sucesso!");
-                System.out.println();
-
-            } else {
-
-                System.out.println("Não foi possível cadastrar o filme no sistema, filme já cadastrado!");
-            }
-
-        }
 
         public static Filme buscarFilme (String nome) {
 
@@ -95,7 +79,23 @@ public class Catalogo {
             return null;
         }
 
-        public static void exibirFilmes() {
+    @Override
+    public Ator buscarAtor() {
+        return null;
+    }
+
+    @Override
+    public Diretor buscarDiretor() {
+        return null;
+    }
+
+    @Override
+    public Filme buscarFilme() {
+        return null;
+    }
+
+    @Override
+    public void exibirFilmes() {
             for (Filme filme : catalogoFilmes) {
                 System.out.println(filme);
             }
@@ -107,5 +107,37 @@ public class Catalogo {
                 filme.adicionarAtor(ator);
             }
         }
+
+    public static void cadastrarFilme(String nome, String dataDeLancamento, double orcamento, String descricao) {
+        if (buscarFilme(nome) == null)
+        {
+            Filme novoFilme = new Filme(nome, dataDeLancamento, orcamento, descricao);
+            catalogoFilmes.add(novoFilme);
+
+            System.out.println();
+            System.out.println("O filme " + nome + " foi cadastrado com sucesso!");
+            System.out.println();
+
+        } else {
+
+            System.out.println("Não foi possível cadastrar o filme no sistema, filme já cadastrado!");
+        }
     }
+
+    @Override
+    public void cadastrarFilme() {
+
+    }
+
+    @Override
+    public void cadastrarAtor() {
+
+    }
+
+    @Override
+    public void cadastrarDiretor() {
+
+    }
+    
+}
 
